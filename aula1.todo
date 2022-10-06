@@ -1,0 +1,47 @@
+Dicas do Prof:
+    ✔ Inicial do nome de um Componentes deve ser maiúsculo 
+    ✔ Não iremos utilizar <require("")> e sim <import React from 'react'> 
+    ✔ React DOM usa a convenção de nomenclatura camelCase. Exemplo: <class> se torna <className>
+    ✔ Tags devem ser fechadas. Exemplo: <Footer/>
+    ✔ So é possível retornar apenas um html por componente
+
+Criando um projeto em React:
+    ☐ Instalar o 'npm install -g create-react-app'
+    ☐ Criar o projeto utilizando o comando npx create-react-app todo-app --use-npm
+    ☐ Executar o projeto com npm start (Certifique que está na pasta todo-app)
+
+Configurando nosso projeto:
+    ☐ Instalar o npm install styled-components
+    ☐ Colar dentro da pasta src a pasta assets fornecido.(Essa pasta contém todas as imagens que iremos utilizar)
+    ☐ Dentro da pasta src colar a pasta 'views' e 'componentes' fornecidos
+    ☐ No arquivo index.js import a view 'Home' e exclua a linha que importa o App
+    ☐ Renderize o componente
+    ☐ Delete: App.js; app.css; app.test.js 
+    ☐ Execute e teste o projeto
+
+Criando o primeiro componente Footer: 
+    ☐ Criar dentro da pasta Footer o arquivo index.js e import os styles. Segue exemplo abaixo:
+    import * as S from './styles';
+    ☐ Criar a function 'Footer' e exportar. Segue exemplo abaixo:
+     export default Footer;
+    ☐ retun um spam  <span>ToDO - Organizando sua vida</span>
+    ☐ Desenvolver o Footer conforme o pdf
+
+Importando o componente Footer a views Home:
+    ☐ No arquivo views/Home/index.js importe o Footer 
+    ☐ Renderize o Footer 
+    ☐ Execute e teste o projeto
+
+Criando o componente Header: 
+    ☐ Import a logo
+    ☐ Crie os button conforme o pdf
+
+Importando o componente Header a views  Home:
+    ☐ No arquivo views/Home/index.js importe o Header 
+    ☐ Renderize o Header 
+    ☐ Exclua o <h2>
+    ☐ Execute e teste o projeto   
+  
+
+
+
