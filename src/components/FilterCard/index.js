@@ -7,16 +7,18 @@ function FilterCard(props) {
 
   return (
     <>
-      {props.title.map((name, i) =>
-        <S.Container key={i} actived={props.actived}>
+          <S.Container  actived={props.actived}>
 
-          <span>{name}</span>
-          <img src={filter} alt="Filtro" />
+            <span>{props.title}</span>
+            <img src={filter} alt="Filtro" />
 
 
-        </S.Container>
-      )
-      }
+          </S.Container>
+      
+        
+      
+      
+      
     </>
   )
 

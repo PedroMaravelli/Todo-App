@@ -1,18 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import FilterCard from '../../components/FilterCard';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import * as S from './styles';
 import TaskCard from '../../components/TaskCard';
+import api from '../../services/api';
 
 
 
 function Home() {
-    const tasks = [{ "done": false, "created": "2021-10-23T20:05:31.643Z", "_id": "101", "macaddress": "9191", "type": 5, "title": "Futebol Com a Galera", "description": "Jogar Futebol", "when": "10/05/2021", "__v": 0 },
-    { "done": false, "created": "2021-10-23T20:05:31.643Z", "_id": "102", "macaddress": "6666", "type": 2, "title": "Comprar Café", "description": "Café é Vida", "when": "11/05/2021", "__v": 0 }]
+    
+    const [filterActived, setFilterActived] = useState('all');
+
+    const [taskList, setTaskList] = useState([])
+    api.get('/task/filter/all/321654').then(response=>{
+     setTaskList(response.data)
+    })
 
     
     let title = ['Hoje', 'Semana', 'Todos', 'Ano', 'Mês']
+
     
     return (
         <S.Container>
@@ -20,8 +27,21 @@ function Home() {
             <Header ></Header>
 
             <S.FilterArea>
-                <FilterCard title={title} actived={false}></FilterCard>
-                
+                <button onClick={()=> setFilterActived('today')}>
+                    <FilterCard title='Hoje' actived={filterActived === 'today'}></FilterCard>
+                </button>  
+                <button onClick={()=> setFilterActived('week')}>  
+                    <FilterCard title='Semana' actived={filterActived === 'week'}></FilterCard>
+                </button>
+                <button onClick={()=> setFilterActived('all')}>  
+                    <FilterCard title='Todos' actived={filterActived === 'all'}></FilterCard>
+                </button>
+                <button onClick={()=> setFilterActived('year')}>  
+                    <FilterCard title='Ano' actived={filterActived === 'year'}></FilterCard>
+                </button>
+                <button onClick={()=> setFilterActived('month')}> 
+                    <FilterCard title='Mês' actived={filterActived === 'year'}></FilterCard>
+                </button>
 
             </S.FilterArea>
 
@@ -29,7 +49,9 @@ function Home() {
                 <h3>TAREFAS</h3>
             </S.Title>
             <S.Content>
-                <TaskCard task={tasks}></TaskCard>
+            {taskList.map((t)=>(
+                  <TaskCard key={t._id} type={t.type} title={t.title} when={t.when} done={t.done}/>
+                ))}
             </S.Content>
             <Footer></Footer>
         </S.Container>
