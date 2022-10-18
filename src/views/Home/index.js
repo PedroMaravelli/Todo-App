@@ -5,20 +5,37 @@ import Header from '../../components/Header';
 import * as S from './styles';
 import TaskCard from '../../components/TaskCard';
 import api from '../../services/api';
+import {useEffect} from 'react'
+import Task from '../Task/index'
+
 
 
 
 function Home() {
+    const [taskApi, setTaskApi] = useState([])
     
     const [filterActived, setFilterActived] = useState('all');
-
     const [taskList, setTaskList] = useState([])
-    api.get('/task/filter/all/321654').then(response=>{
-     setTaskList(response.data)
-    })
+
+    useEffect(()=>{
+        api.get('/task/filter/all/321654').then(response=>{
+            setTaskList(response.data)
+           })
+
+    },[])
 
     
-    let title = ['Hoje', 'Semana', 'Todos', 'Ano', 'Mês']
+   
+
+    useEffect(()=>{
+        api.get('/task/filter/'+filterActived +'/321654')
+        .then(response => {
+           setTaskApi(response.data)
+        })
+
+    },[filterActived])
+
+   
 
     
     return (
@@ -40,7 +57,7 @@ function Home() {
                     <FilterCard title='Ano' actived={filterActived === 'year'}></FilterCard>
                 </button>
                 <button onClick={()=> setFilterActived('month')}> 
-                    <FilterCard title='Mês' actived={filterActived === 'year'}></FilterCard>
+                    <FilterCard title='Mês' actived={filterActived === 'month'}></FilterCard>
                 </button>
 
             </S.FilterArea>
@@ -49,12 +66,14 @@ function Home() {
                 <h3>TAREFAS</h3>
             </S.Title>
             <S.Content>
-            {taskList.map((t)=>(
+            {taskApi.map((t)=>(
                   <TaskCard key={t._id} type={t.type} title={t.title} when={t.when} done={t.done}/>
                 ))}
             </S.Content>
             <Footer></Footer>
+            <Task></Task>
         </S.Container>
+        
     )
 }
 

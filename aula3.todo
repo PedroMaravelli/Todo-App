@@ -12,15 +12,15 @@ Criando o useState:
         -year
         exemplo
         *onClick={() => setFilterActived("today")}
-    ☐ Criar lógica de filterCard Ativo. Informar Actived=true para o componente FilterCard ativo           
-    ☐ Execute e teste o Projeto
+    ✔ Criar lógica de filterCard Ativo. Informar Actived=true para o componente FilterCard ativo @done(22-10-17 19:52)
+    ✔ Execute e teste o Projeto @done(22-10-17 19:52)
 
 Criando useEffect: 
-    ☐ No arquivo src/views/Home/index.js import o useEffect abaixo:
+    ✔ No arquivo src/views/Home/index.js import o useEffect abaixo: @done(22-10-17 19:59)
     import React, { useState, useEffect } from 'react';
-    ☐ No arquivo src/views/Home/index.js criar o useState abaixo:
+    ✔ No arquivo src/views/Home/index.js criar o useState abaixo: @done(22-10-17 19:59)
     const [tasksApi, setTasksApi] = useState([]);
-    ☐ Dentro da function 'Home' criar uma função async com o nome 'loadTasks'
+    ✔ Dentro da function 'Home' criar uma função async com o nome 'loadTasks' @done(22-10-17 20:56)
     ☐ Essa função deve carregar as tasks no tasksApi
         *Dica:setTasksApi() 
     ☐ Criar o useEffect: o useEffect deverá chamar a função 'loadTasks' e monitorar o estado "filterActived"   
