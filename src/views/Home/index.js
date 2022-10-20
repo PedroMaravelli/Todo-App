@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+
 import FilterCard from '../../components/FilterCard';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -40,27 +41,29 @@ function Home() {
     
     return (
         <S.Container>
+        
+                <Header ></Header>
+
+                <S.FilterArea>
+                    <button onClick={()=> setFilterActived('today')}>
+                        <FilterCard title='Hoje' actived={filterActived === 'today'}></FilterCard>
+                    </button>  
+                    <button onClick={()=> setFilterActived('week')}>  
+                        <FilterCard title='Semana' actived={filterActived === 'week'}></FilterCard>
+                    </button>
+                    <button onClick={()=> setFilterActived('all')}>  
+                        <FilterCard title='Todos' actived={filterActived === 'all'}></FilterCard>
+                    </button>
+                    <button onClick={()=> setFilterActived('year')}>  
+                        <FilterCard title='Ano' actived={filterActived === 'year'}></FilterCard>
+                    </button>
+                    <button onClick={()=> setFilterActived('month')}> 
+                        <FilterCard title='Mês' actived={filterActived === 'month'}></FilterCard>
+                    </button>
+
+                </S.FilterArea>
+           
             
-            <Header ></Header>
-
-            <S.FilterArea>
-                <button onClick={()=> setFilterActived('today')}>
-                    <FilterCard title='Hoje' actived={filterActived === 'today'}></FilterCard>
-                </button>  
-                <button onClick={()=> setFilterActived('week')}>  
-                    <FilterCard title='Semana' actived={filterActived === 'week'}></FilterCard>
-                </button>
-                <button onClick={()=> setFilterActived('all')}>  
-                    <FilterCard title='Todos' actived={filterActived === 'all'}></FilterCard>
-                </button>
-                <button onClick={()=> setFilterActived('year')}>  
-                    <FilterCard title='Ano' actived={filterActived === 'year'}></FilterCard>
-                </button>
-                <button onClick={()=> setFilterActived('month')}> 
-                    <FilterCard title='Mês' actived={filterActived === 'month'}></FilterCard>
-                </button>
-
-            </S.FilterArea>
 
             <S.Title>
                 <h3>TAREFAS</h3>
@@ -71,7 +74,8 @@ function Home() {
                 ))}
             </S.Content>
             <Footer></Footer>
-            <Task></Task>
+           
+            
         </S.Container>
         
     )

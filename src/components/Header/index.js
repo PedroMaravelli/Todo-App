@@ -1,6 +1,7 @@
 import * as S from './styles'
 import logo from '../../assets/logo.png'
 import bell from '../../assets/bell.png'
+import {Link} from 'react-router-dom'
 
 
 
@@ -14,7 +15,7 @@ function Header(props) {
                     
                 
 
-                <a href='/'><button type='submit'>Inicio</button></a>
+                <Link to='/'><button type='submit'>Inicio</button></Link>
                 <div className='dividir'></div>
                 <a href='/'><button type='submit'>Nova Tarefa</button></a>
             
